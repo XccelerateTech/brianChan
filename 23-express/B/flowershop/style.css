@@ -1,0 +1,52 @@
+.logo{
+    background-color:transparent;
+}
+
+.justify-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banner{
+    background-attachment:fixed;
+    background:linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ),url(./assets/flowershop.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    height:80vh;
+    width:100%;
+    margin-bottom: 0px;
+}
+
+
+
+.button{
+    background-color: rgb(16, 196, 121);
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 30;
+    border:0px ;
+    border-radius: 30px;
+    text-align: center;
+    padding: 10px;
+    
+}
+
+/* .four{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    padding-top:5%;
+} */
+
+.row{
+    background-color: blanchedalmond;
+    padding: 30px;
+}
+.slogan{
+    color: aliceblue;
+}

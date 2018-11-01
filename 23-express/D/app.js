@@ -4,15 +4,11 @@ const path = require('path');
 
 var app = express();
 
-app.use(bodyParser.urlencoded({extended: false}));
-
-app.get('/',function(req,res){
-    res.sendFile(path.join(__dirname,'index.html'));
-})
+app.use(bodyParser.json());
 
 app.post('/calculate',function(req,res){
     console.log(req.body);
-    var arr = JSON.parse(req.body.arr);
+    var arr = req.body;
     var result = arr.reduce(add,0);
     function add(a,b){
         return a + b;
