@@ -11,6 +11,13 @@ class NoteService {
 
     addNote(note){
         this.notes.push(note);
+        fs.writeFile("./object.json", JSON.stringify(note), (err) => {
+            if (err) {
+                console.error(err);
+                return;
+            };
+            console.log("File has been created.");
+        });
     };
 
     removeNote(index){

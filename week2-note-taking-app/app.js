@@ -16,7 +16,10 @@ app.post('/add-note',(req,res)=>{
     res.send("recieved");
 });
 
-
+app.post('/insert-note',(req,res)=>{
+    noteService.insertNote(req.body.index,req.body.content);
+    res.send("recieved");
+})
 
 
 app.listen(8080,()=>{
