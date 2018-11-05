@@ -1,0 +1,25 @@
+>Why NodeJs programme is running so fast?
+
+Because NodeJs can put  processes which may take a long time to execute into thread pool, and keep running program in event queue. Once event queue is clear, NodeJs will callback the program from thread pool. NodeJs ends its running if and only if both event queue and thread pool are empty.
+
+>What is Callback function?
+
+A callback is a block of instructions wrapped in a function so that it can be invoked when an asynchronous operation has completed.
+
+>What is Promise?
+
+A promise is an object that can be used to represent the eventual completion of an a asynchronou soperation.
+
+>Why do we use Promise?
+
+To prevent the callback hell problem, which is a chain of multipile callback function,we will wrap functions into a promise for easier maintainment and debugging. Promise can be either resolved or rejected, it will return different value depending on different condition.
+
+Promise > resolved > passing data > .then() > .then()......
+
+>What is express?
+
+
+
+
+
+

@@ -16,10 +16,10 @@ var searchingFolder = (path) => {
 var outPut = (filePath) => {
     fs.stat(filePath).then((stats) => {
         if (stats.isDirectory()) {
-            console.log(filePath + 'is a directory.');
+            console.log(filePath + ' is a directory.');
             searchingFolder(filePath);
         } else {
-            console.log(filePath + 'is a file.')
+            console.log(filePath + ' is a file.')
         };
     }).catch((err) => {
         console.log(err);

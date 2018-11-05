@@ -1,6 +1,6 @@
 
 var Song = require('../Song.js');
-
+var customMatchers = require('./helpers/SpecHelper.js');
 
 beforeEach(function() {
   song1 = new Song('Layla','Layla and Other Assorted Love Songs','Eric Clapton');
@@ -8,7 +8,8 @@ beforeEach(function() {
   song3 = new Song('cause we ended as lovers','Blow by blow','Stevie Wonder');
   song4 = new Song('Gravity','Continuum','John Mayer');
   song5 = new Song('Waiting on the World to Change','Continuum','John Mayer');
-  
+  duplicatedsong = new Song('Layla','Layla and Other Assorted Love Songs','Eric Clapton');
+
   
 });
 
@@ -40,5 +41,11 @@ it("should be in the same album", function(){
   expect(song1).toBeInTheSameAlbumAs(song2);
 });
 
+it('the difference between toBe and toEqual',function(){
+  expect(song1).not.toBe(duplicatedsong);
+  expect(song1).toEqual(duplicatedsong);
+})
+
+// toEqual checks the equivalence, while toBe makes sure that they are exact same object
 
 
