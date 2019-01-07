@@ -1,7 +1,8 @@
 export interface IUserInfo{
+    age:string;
     firstName: string;
-    lastName:string;
-    age:number;
-    occupation:number;
     id:number;
+    lastName:string;
+    occupation:string;
+    
 }

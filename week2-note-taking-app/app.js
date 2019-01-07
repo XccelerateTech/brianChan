@@ -1,25 +1,29 @@
 const express = require('express');
-const NoteService = require('./notesServices.js');
 const bodyParser = require('body-parser');
+const basicAuth = require('express-basic-auth');
+const fs = require('fs');
+
+const Authorizer = require('./Authorizer.js')
+const NoteService = require('./noteService.js');
+const NoteRouter = require('./noteRouter.js')
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
-var noteService = new NoteService();
+app.use(bodyParser.json());
 
-app.get('/',(req,res)=>{
-    res.send(noteService.listNote());
-});
 
-app.post('/add-note',(req,res)=>{
-    noteService.addNote(req.body.content);
-    res.send("recieved");
-});
+app.use(basicAuth({
+    authorizer: new Authorizer(JSON.parse(fs.readFileSync('./users.json'))),
+    challenge:true,
+    realm:'Note-Taking-App'
+}));
 
-app.post('/insert-note',(req,res)=>{
-    noteService.insertNote(req.body.index,req.body.content);
-    res.send("recieved");
-})
+let noteService = new NoteService("./notes.json");
+
+app.use('/api/notes',(new NoteRouter(noteService)).router());
+
+
 
 
 app.listen(8080,()=>{

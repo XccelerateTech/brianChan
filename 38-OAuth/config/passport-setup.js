@@ -26,23 +26,23 @@ passport.use('facebook',
     }, (accessToken, refreshToken, profile, done) => {
         console.log('using facebook...... ')
         console.log(profile);
-        // User.findOne({
-        //     facebookId: profile.id
-        // }).then((currentUser) => {
-        //     if (currentUser) {
-        //         console.log('user is: ' + currentUser);
-        //         done(null, currentUser);
-        //     } else {
-        //         new User({
-        //             username: profile.displayName,
-        //             facebookId: profile.id,
-        //             // facebookThumbnail: profile,
-        //         }).save().then((newUser)=>{
-        //             console.log('new user created' + newUser);
-        //             done(null, newUser);
-        //         });
-        //     }
-        // })
+        User.findOne({
+            facebookId: profile.id
+        }).then((currentUser) => {
+            if (currentUser) {
+                console.log('user is: ' + currentUser);
+                done(null, currentUser);
+            } else {
+                new User({
+                    username: profile.displayName,
+                    facebookId: profile.id,
+                    // facebookThumbnail: profile,
+                }).save().then((newUser)=>{
+                    console.log('new user created' + newUser);
+                    done(null, newUser);
+                });
+            }
+        })
     })
 )
 

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 
 interface ICardProps {
-    age?: number;
+    age?: string;
     children?: JSX.Element[] | JSX.Element;
     firstName?: string;
     lastName?: string;

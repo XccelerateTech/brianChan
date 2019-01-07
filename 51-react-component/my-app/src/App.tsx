@@ -10,20 +10,12 @@ import {IUserInfo} from './models';
 class App extends React.Component {
   public state = {
     users : [
-      {id: 1, firstName: 'lemon',lastName: 'John',age:10,occupation:'HAHAHAHHAH'},
-      {id: 2, firstName: 'orange',lastName: 'John',age:12,occupation:'BOBOBOBOBO'},
-      {id: 3, firstName: 'apple',lastName: 'John',age:13,occupation:'DUDUDUDUDUDU'},
+      {id: 1, firstName: 'lemon',lastName: 'John',age:'10',occupation:'HAHAHAHHAH'},
+      {id: 2, firstName: 'orange',lastName: 'John',age:'12',occupation:'BOBOBOBOBO'},
+      {id: 3, firstName: 'apple',lastName: 'John',age:'13',occupation:'DUDUDUDUDUDU'},
   ]
   }
-  public addUser = (user:IUserInfo) =>{
-    user.id = this.state.users.length ;
-    let users = [];
-    users = [...this.state.users,user];
-    this.setState({
-      users
-    })
-    
-  }
+  
   public render() {
     return (
       <div className="App">
@@ -33,6 +25,16 @@ class App extends React.Component {
         <UserList users={this.state.users}/>
       </div>
     );
+  }
+
+  private addUser = (user:IUserInfo) =>{
+    user.id = this.state.users.length ;
+    let users = [];
+    users = [...this.state.users,user];
+    this.setState({
+      users
+    })
+    
   }
 }
 
